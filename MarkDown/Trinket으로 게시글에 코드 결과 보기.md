@@ -4,6 +4,10 @@ Trinket 을 이용하면 다음과 같이 스크립트 창을 불러와서 실�
 
 input 엔터 후 결과 값 출력도 가능함을 확인할 수 있다.
 
+
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcJHBhT%2Fbtq2kCSlDZe%2FGC3xkEkIU2ADTPznUBHsfK%2Fimg.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
+
+
 ## 방법은 아래와 같다
 
 먼저 아래 사이트로 들어간다. 
@@ -35,9 +39,9 @@ Share 를 누르고 </>Emded 를 누른다 .
 티스토리로 돌아와서 복사한 Embed 코드를 게시글을 html 모드로 바꾼 뒤 넣어주면 끝!
 
 
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeetIu%2Fbtq2ttszYCm%2F7JJASv6E9csgRivpDkyY0K%2Fimg.png" width="40%" height="30%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbeetIu%2Fbtq2ttszYCm%2F7JJASv6E9csgRivpDkyY0K%2Fimg.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
 
-<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcJHBhT%2Fbtq2kCSlDZe%2FGC3xkEkIU2ADTPznUBHsfK%2Fimg.png" width="40%" height="30%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcJHBhT%2Fbtq2kCSlDZe%2FGC3xkEkIU2ADTPznUBHsfK%2Fimg.png" width="100%" height="100%" title="px(픽셀) 크기 설정" alt="RubberDuck"></img>
 
 
 어딘가엔 유용하게 쓰이겠죠?
