@@ -1,7 +1,7 @@
 # if ~ elif ~ else 문 연습
 ## 1. 입력받은 값의 모든 약수 구하기
 
-```
+```py
 x = int(input())
 
 for a in range(1, x+1):
@@ -16,7 +16,7 @@ for a in range(1, x+1):
  9(은)는 9의 약수입니다.
 
 ## 2. 입력받은 값의 모든 약수 구하고 약수가 2개인 소수를 표기하기
-```
+```py
 x = int(input())
 count=0
 for a in range(1, x+1):
@@ -34,8 +34,8 @@ if count == 2:
 7(은)는 1과 7로만 나눌 수 있는 소수입니다.  
 
 ## 3. 입력된 알파벳의 대소문자를 구별하기
-### 대소문자를 구별하는 .isupper() / .islower() 사용
-```
+### 대소문자를 구별하는 `.isupper()` / `.islower()` 사용
+```py
 x = input()
 if x.islower():
     print(f'{x} 는 소문자 입니다.')
@@ -48,5 +48,5 @@ else:
 * 입력 : f  
 f 는 소문자 입니다.  
 
-* 입력 : X  
+* 입력 : K  
 K 는 대문자 입니다.    
