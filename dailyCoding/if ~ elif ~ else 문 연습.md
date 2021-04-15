@@ -50,3 +50,49 @@ f 는 소문자 입니다.
 
 * 입력 : K  
 K 는 대문자 입니다.    
+
+
+## 4. 가위 바위 보 게임
+### (1) random.choice 함수를 이용
+```py
+import random
+
+all = ['가위','바위','보']
+Man1 = random.choice(all)
+Man2 = random.choice(all)
+
+print('Man1 :',Man1,'Man2 :',Man2)
+
+if Man1 == Man2:
+    print('Result : Draw!')
+elif Man1 == '가위' and Man2 == '보':
+    print('Result : Man1 Win!')
+elif Man1 == '바위' and Man2 == '가위':
+    print('Result : Man1 Win!')
+elif Man1 == '보' and Man2 == '바위':
+    print('Result : Man1 Win!')
+else :
+    print('Result : Man2 Win!')
+```
+
+### (2) input() 을 받아 이용
+```py
+Man1 = input()
+Man2 = input()
+
+if Man1 == Man2:
+    print('Result : Draw!')
+elif Man1 == '가위' and Man2 == '보':
+    print('Result : Man1 Win!')
+elif Man1 == '바위' and Man2 == '가위':
+    print('Result : Man1 Win!')
+elif Man1 == '보' and Man2 == '바위':
+    print('Result : Man1 Win!')
+else :
+    print('Result : Man2 Win!')
+```    
+    
+    
+    
+    
+    
