@@ -8,6 +8,7 @@ def is_palindrome(word):
             return False
     return True
 ```
+
 ##### 2. 선형탐색
 ```
 def linear_search(element, some_list):
@@ -16,6 +17,7 @@ def linear_search(element, some_list):
             return some_list.index(i)
     return None
 ```
+
 ##### 3. 이진탐색 : 절반으로 잘라가며 요소 찾기
 ```
 def binary_search(element, some_list):
@@ -89,20 +91,41 @@ for i in range(1, 11):
     print(triangle_number(i))
 ```
 
+#### 4. 각 자릿수의 합 리턴
+```
+def sum_digits(n):
+    # print(n)
+    if n < 10:
+        return n
+
+    return n % 10 + sum_digits(n // 10)
+
+# 테스트
+print(sum_digits(22541))
+print(sum_digits(92130))
+print(sum_digits(12634))
+print(sum_digits(704))
+print(sum_digits(3755))
+
+# 결과 14 15 16 11 20
+```
+
+#### 5. 파라미터 some_list를 거꾸로 뒤집는 함수
+```
+def flip(some_list):
 
 
+    if len(some_list) == 1:
+        return some_list
+    return some_list[-1:] + flip(some_list[:-1])
 
+# 테스트
+some_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+some_list = flip(some_list)
+print(some_list)
 
-
-
-
-
-
-
-
-
-
-
+# 결과 [9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
 
 
 
