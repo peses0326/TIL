@@ -124,6 +124,70 @@ print(some_list)
 
 # 결과 [9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
+#### 6. 리스트 내 요소 찾는 재귀함수
+```
+def binary_search(element, some_list, start_index=0, end_index=None):
+    # end_index가 따로 주어지지 않은 경우에는 리스트의 마지막 인덱스
+    if end_index == None:
+        end_index = len(some_list) - 1
+
+    midpoint = (end_index + start_index) // 2
+    if start_index > end_index:
+        return None
+
+    if element == some_list[midpoint]:
+        return midpoint
+    elif element < some_list[midpoint]:
+        return binary_search(element, some_list, start_index, midpoint - 1)
+    else:
+        return binary_search(element, some_list, midpoint + 1, end_index)
+
+
+print(binary_search(2, [2, 3, 5, 7, 11]))
+print(binary_search(0, [2, 3, 5, 7, 11]))
+print(binary_search(5, [2, 3, 5, 7, 11]))
+print(binary_search(3, [2, 3, 5, 7, 11]))
+print(binary_search(11, [2, 3, 5, 7, 11]))
+
+# 결과 : 0 None 2 1 4
+```
+
+#### 7. 하노이의 탑
+```
+def move_disk(disk_num, start_peg, end_peg):
+    # print("%d번 원판을 %d번 기둥에서 %d번 기둥으로 이동" % (disk_num, start_peg, end_peg))
+    print('0')
+
+
+def hanoi(num_disks, start_peg, end_peg):
+    if num_disks == 0:
+        return
+    else:
+        other_peg = 6 - start_peg - end_peg
+
+        # 1. 가장 큰 원판을 제외하고 나머지 원판들을 start_peg에서 other_peg로 이동
+        hanoi(num_disks - 1, start_peg, other_peg)
+
+        # 2. 가장 큰 원판을 start_peg에서 end_peg로 이동
+        move_disk(num_disks, start_peg, end_peg)
+
+        # 3. 나머지 원판들을 other_peg에서 end_peg로 이동
+        hanoi(num_disks - 1, other_peg, end_peg)
+
+
+# 테스트 
+hanoi(1, 1, 3)
+
+# 결과 
+1번 원판을 1번 기둥에서 3번 기둥으로 이동
+2번 원판을 1번 기둥에서 2번 기둥으로 이동
+1번 원판을 3번 기둥에서 2번 기둥으로 이동
+3번 원판을 1번 기둥에서 3번 기둥으로 이동
+1번 원판을 2번 기둥에서 1번 기둥으로 이동
+2번 원판을 2번 기둥에서 3번 기둥으로 이동
+1번 원판을 1번 기둥에서 3번 기둥으로 이동
+```
+
 
 
 
