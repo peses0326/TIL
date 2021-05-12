@@ -608,6 +608,182 @@ print(fib_optimized(213))
 # 146178119651438213260386312206974243796773058
 ```
 
+#### 4. 장사 분석, 최대 수익 출력 함수
+
+# (1)
+```
+def max_profit_memo(price_list, count, cache):
+    # Base Case: 0개 혹은 1개면 부분 문제로 나눌 필요가 없기 때문에 가격을 바로 리턴한다
+    if count < 2:
+        cache[count] = price_list[count]
+        return price_list[count]
+
+    # 이미 계산한 값이면 cache에 저장된 값을 리턴한다
+    if count in cache:
+        return cache[count]
+
+    # profit은 count개를 팔아서 가능한 최대 수익을 저장하는 변수
+    # 팔려고 하는 총개수에 대한 가격이 price_list에 없으면 일단 0으로 설정
+    # 팔려고 하는 총개수에 대한 가격이 price_list에 있으면 일단 그 가격으로 설정
+    if count < len(price_list):
+        profit = price_list[count]
+    else:
+        profit = 0
+
+    # count개를 팔 수 있는 조합들을 비교해서, 가능한 최대 수익을 profit에 저장
+    for i in range(1, count // 2 + 1):
+        profit = max(profit, max_profit_memo(price_list, i, cache) 
+                 + max_profit_memo(price_list, count - i, cache))
+
+    # 계산된 최대 수익을 cache에 저장
+    cache[count] = profit
+
+    return profit
+
+def max_profit(price_list, count):
+    max_profit_cache = {}
+
+    return max_profit_memo(price_list, count, max_profit_cache)
+```
+
+# (2)
+```
+def max_profit_memo(price_list, count, cache):
+    if count < 2:
+        cache[count] = price_list[count]
+        return price_list[count]
+
+    if count in cache:
+        return cache[count]
+
+    maximum = 0
+
+    for i in range(1, len(price_list)):
+        if count < i:
+            break
+        if maximum < price_list[i] + max_profit_memo(price_list, count - i, cache):
+            maximum = price_list[i] + max_profit_memo(price_list, count - i, cache)
+
+    cache[count] = maximum
+    return cache[count]
+
+
+def max_profit(price_list, count):
+    max_profit_cache = {}
+
+    return max_profit_memo(price_list, count, max_profit_cache)
+```
+```
+# 테스트
+print(max_profit([0, 100, 400, 800, 900, 1000], 5))
+print(max_profit([0, 100, 400, 800, 900, 1000], 10))
+print(max_profit([0, 100, 400, 800, 900, 1000, 1400, 1600, 2100, 2200], 9))
+
+# 결과 1200 2500 2400
+```
+
+##### 5. Tabulation 방식의 새꼼달꼼 장사 최대 수익 함수
+
+#### 1) 일반 풀이
+```
+def max_profit(price_list, count):
+    if count <2:
+        return price_list[count]
+
+    profit = 0
+
+    if count < len(price_list):
+        profit = price_list[count]
+
+    for i in range(1,len(price_list)-1):
+        if count < i:
+            break
+        if profit < price_list[i] + max_profit(price_list,count - i):
+            profit = price_list[i] + max_profit(price_list,count - i)
+            
+    return profit
+```
+#### 2) Tabulation 방식
+```
+def max_profit(price_list, count):
+    profit_table = [0]
+
+    for i in range(1, count + 1):
+
+        profit = 0
+
+        if i < len(price_list):
+            profit = price_list[i]
+
+        for j in range(1, i // 2 + 1):
+            profit = max(profit, profit_table[j] + profit_table[i - j])
+
+        profit_table.append(profit)
+
+    return profit_table[count]
+```
+```
+# 테스트
+print(max_profit([0, 200, 600, 900, 1200, 2000], 5))
+print(max_profit([0, 300, 600, 700, 1100, 1400], 8))
+print(max_profit([0, 100, 200, 400, 600, 900, 1200, 1300, 1500, 1800], 9))
+
+# 결과 : 2000 2400 1800
+```
+
+# ----------------------------------------------------------------------------------------------------
+## D) Greedy Algorithm
+#### 1. 최소 동전으로 거슬러주기
+```
+def min_coin_count(value, coin_list):
+    # 누적 동전 개수
+    count = 0
+    # coin_list의 값들을 큰 순서대로 본다
+    for coin in sorted(coin_list, reverse=True):
+        # 현재 동전으로 몇 개 거슬러 줄 수 있는지 확인한다
+        count += (value // coin)
+
+        # 잔액을 계산한다
+        value %= coin
+        
+    return count
+
+
+# 테스트
+default_coin_list = [100, 500, 10, 50]
+print(min_coin_count(1440, default_coin_list))
+print(min_coin_count(1700, default_coin_list))
+print(min_coin_count(23520, default_coin_list))
+print(min_coin_count(32590, default_coin_list))
+
+#결과 : 10 5 49 70
+```
+#### 2. 세 사람의 카드게임에서 한장씩 뽑아 가장 큰 곱 출력 함수
+```
+def max_product(card_lists):
+    max_result = 1
+
+    for i in card_lists:
+        max_result *= max(i)
+    return max_result
+
+# 테스트
+test_cards1 = [[1, 6, 5], [4, 2, 3]]
+print(max_product(test_cards1))
+
+test_cards2 = [[9, 7, 8], [9, 2, 3], [9, 8, 1], [2, 8, 3], [1, 3, 6], [7, 7, 4]]
+print(max_product(test_cards2))
+
+test_cards3 = [[1, 2, 3], [4, 6, 1], [8, 2, 4], [3, 2, 5], [5, 2, 3], [3, 2, 1]]
+print(max_product(test_cards3))
+
+test_cards4 = [[5, 5, 5], [4, 3, 5], [1, 1, 1], [9, 8, 3], [2, 8, 4], [5, 7, 4]]
+print(max_product(test_cards4))
+
+# 결과 : 24 244944 10800 12600
+```
+
+
 
 
 
