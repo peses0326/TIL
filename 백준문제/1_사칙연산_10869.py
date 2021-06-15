@@ -8,3 +8,5 @@ print(a-b)
 print(a*b)
 print(a//b)
 print(a%b)
+
+https://www.acmicpc.net/problem/1110
